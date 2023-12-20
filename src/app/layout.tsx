@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`bg-violet-500 max-w-7xl ml-auto mr-auto p-3 ${inter.className}`}>
+      <body className={`bg-violet-500 max-w-7xl ml-auto mr-auto p-3 min-h-screen flex flex-col ${inter.className}`}>
         <Header />
         {children}
       </body>

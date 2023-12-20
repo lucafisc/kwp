@@ -1,7 +1,7 @@
 import React from "react";
 import request, { gql } from "graphql-request";
 import type { FilmType } from "@/types/FilmTypes";
-import { FilmSchema, FilmImageSchema } from "@/types/FilmTypes";
+import { FilmSchema } from "@/types/FilmTypes";
 import FilmCard from "@/components/FilmCard";
 
 const WP_GRAPHQL_BASE = process.env.WP_GRAPHQL_BASE!;
