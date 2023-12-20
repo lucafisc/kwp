@@ -27,7 +27,7 @@ export default function FilmCard({ film }: Props) {
               alt={image.altText}
               height={image.mediaDetails.height}
               width={image.mediaDetails.width}
-              className="object-cover md:w-5/6 xs:w-1/2 w-full mx-auto p-4"
+              className="object-cover md:w-5/6 xs:w-1/2 w-full mx-auto p-4 "
             />
           </div>
         )}
