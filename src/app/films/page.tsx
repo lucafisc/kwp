@@ -3,6 +3,12 @@ import request, { gql } from "graphql-request";
 import type { FilmType } from "@/types/FilmTypes";
 import { FilmSchema } from "@/types/FilmTypes";
 import FilmCard from "@/components/FilmCard";
+import type { Metadata } from "next";
+
+export const metadata : Metadata = {
+	title: "Films",
+	description: "Films",
+};
 
 const WP_GRAPHQL_BASE = process.env.WP_GRAPHQL_BASE!;
 
@@ -10,10 +16,12 @@ const WP_GRAPHQL_BASE = process.env.WP_GRAPHQL_BASE!;
 export const revalidate = 600;
 
 export default async function Films() {
-  await getFilms();
+  const films = await getFilms();
   return (
     <main className="">
-		<FilmCard />
+		{films.map((film) => (
+			<FilmCard key={film.id} film={film}/>
+		))}	
 	</main>
   );
 }
@@ -25,8 +33,14 @@ async function getFilms() {
 			edges {
 			  node {
 				id
+				year
+				synopsis
 				festivals
 				filmtitle
+				role
+				duration
+				language
+				additionalInformation
 				featuredImage {
 				  node {
 					guid
@@ -51,11 +65,6 @@ async function getFilms() {
           }[];
         };
     };
-
-	// const films : FilmType[] = [];
-	// for (const film of response.films.edges) {
-	// 	films.push(FilmSchema.parse(film.node))
-	// }   
 
 	const films : FilmType[] = response.films.edges.map((film) => FilmSchema.parse(film.node))
 	return films;

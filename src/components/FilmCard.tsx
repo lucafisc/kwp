@@ -2,46 +2,79 @@ import React from "react";
 import Line from "./Line";
 import Carousel from "./Carousel";
 import Image from "next/image";
+import type { FilmType, ImageType } from "@/types/FilmTypes";
+import { Noto_Serif } from "next/font/google";
 
-export default function FilmCard() {
-  var settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
-  const movie = `<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/359430920?h=e0905562f8" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><script type="text/javascript" nonce="415754116c354ccf9481234efc2" src="//local.adguard.org?ts=1702972051404&amp;type=content-script&amp;dmn=vimeo.com&amp;url=https%3A%2F%2Fvimeo.com%2Fembed%3Fwidth%3D640%26height%3D360%26title%3D1%26byline%3D1%26portrait%3D1%26autoplay%3D0%26loop%3D0%26link%3D1%26caption%3D0%26color%3D00adef%26responsive%3D1%26fixed%3D0%26clip_id%3D359430920%26iframe%3Dtrue&amp;app=com.apple.Safari&amp;css=3&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=1"></script>
-	  <script type="text/javascript" nonce="415754116c354ccf9481234efc2" src="//local.adguard.org?ts=1702972051404&amp;name=AdGuard%20Extra&amp;type=user-script"></script><script src="https://player.vimeo.com/api/player.js"></script>
-	  <p><a href="https://vimeo.com/359430920">My Boyfriend&#039;s Daughter (short film) - Trailer</a> from <a href="https://vimeo.com/kathymeng">Kathy Meng</a> on <a href="https://vimeo.com">Vimeo</a>.</p>`;
+export const notoSerif = Noto_Serif({ subsets: ["latin"] });
+
+type Props = {
+  film: FilmType;
+};
+
+export default function FilmCard({ film }: Props) {
+  const image: ImageType | null = film.featuredImage?.node || null;
 
   return (
-
-    <div className="text-black">
+    <>
       <Line />
-      <h1>Title (2020)</h1>
-      <div className="flex flex-col">
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. A nemo
-          cupiditate ab ipsum, aliquid omnis libero distinctio rerum pariatur
-          molestias ullam accusamus harum eligendi deserunt, odio consequuntur,
-          nobis corrupti laborum? Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Est expedita, nesciunt quisquam eveniet eos quas ab
-          ipsam, soluta animi neque nam consectetur ut unde tempora. Libero
-          sequi voluptatem qui doloribus! Lorem ipsum dolor, sit amet
-          consectetur adipisicing elit. Error, molestiae, fuga aliquid sapiente
-          debitis molestias dolores dolorum magni voluptas vero, earum ducimus
-          commodi porro illo laboriosam quas dolor repudiandae pariatur.
-        </p>
-    	<Carousel>
-			<img src="https://picsum.photos/200" alt="Lorem Picsum" />
-			<img src="https://picsum.photos/200" alt="Lorem Picsum" />
-			<img src="https://picsum.photos/200" alt="Lorem Picsum" />
-			<img src="https://picsum.photos/200" alt="Lorem Picsum" />
-    		
-    		{/* <div dangerouslySetInnerHTML={{ __html: movie }} /> */}
-    	</Carousel>
+
+      {/* Image */}
+      <div className="text-black grid grid-cols-2 grid-rows-2 gap-4">
+        {image && (
+          <div className="bg-white bg-opacity-10 col-span-2 md:col-span-1">
+            <Image
+              src={image.guid}
+              alt={image.altText}
+              height={image.mediaDetails.height}
+              width={image.mediaDetails.width}
+              className="object-cover md:w-5/6 xs:w-1/2 w-full mx-auto p-4"
+            />
+          </div>
+        )}
+        {!image && (
+          <div className="col-span-2 md:col-span-1 md:block hidden">
+            </div>
+        )
+
+        }
+
+        {/* Text */}
+        <div className="col-span-2 md:col-span-1">
+          {/* Title */}
+          <h1 className="text-3xl font-medium ">
+            {film.filmtitle + ` (${film.year})`}
+          </h1>
+
+          {/* Info */}
+          <div className={`${notoSerif.className} font-light mb-6`}>
+            <p>
+              {film.role.map((role, index) =>
+                index === film.role.length - 1 ? role : role + "/"
+              )}
+            </p>
+            <p>{film.duration}</p>
+            <p>
+              {film.language.map((language, index) =>
+                                                                index === film.language.length - 1 ? language : language + ", "
+              )}
+            </p>
+          </div>
+
+          <div dangerouslySetInnerHTML={{ __html: film.synopsis }} className="mb-6"/>
+
+          {/* Synopsis, festivals, additional */}
+          {film.additionalInformation.map((additional) => (
+            <p className="mb-6">{additional}</p>
+          ))}
+
+
+          {film.festivals.map((festival) => (
+            <p>{festival}</p>
+          ))}
+        </div>
+
+
       </div>
-    </div>
+    </>
   );
 }

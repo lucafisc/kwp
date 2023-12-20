@@ -23,6 +23,12 @@ export type ImageType = z.infer<typeof ImageSchema>
 export const FilmSchema = z.object({
 	id: z.string(),
 	filmtitle: z.string(),
+	year: z.number(),
+	role: z.array(z.string()),
+	language: z.array(z.string()),
+	duration: z.string(),
+	synopsis: z.string(),
+	additionalInformation: z.array(z.string()),
 	festivals: z.array(z.string()),
 	featuredImage: z.object({
 		node: ImageSchema,

@@ -14,7 +14,7 @@ export default async function Home() {
   return (
     <main className="flex flex-1 flex-col items-end justify-end">
       {image && (
-        <div className="w-5/6 mt-20 pb-10 pr-2 max-w-md">
+        <div className="w-5/6 mt-20 pb-10 pr-2 max-w-md h-96 md:h-full">
           <Image
             src={image.guid}
             alt={image.altText}
