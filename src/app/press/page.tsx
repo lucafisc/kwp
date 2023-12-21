@@ -15,8 +15,10 @@ const WP_GRAPHQL_BASE = process.env.WP_GRAPHQL_BASE!;
 // Renews Cache for this route every 600 seconds
 export const revalidate = 600;
 
-export default async function Films() {
+export default async function Clippings() {
   const pressClippings = await getClippings();
+
+  
   return (
     <main className="">
       {pressClippings
@@ -25,8 +27,8 @@ export default async function Films() {
             new Date(b.pressDate as string).getTime() -
             new Date(a.pressDate as string).getTime()
         )
-        .map((pressClipping) => (
-          <ClippingCard key={pressClipping.id} pressClipping={pressClipping} />
+        .map((pressClipping, index) => (
+          <ClippingCard key={pressClipping.id} pressClipping={pressClipping} index={index}/>
         ))}
     </main>
   );
