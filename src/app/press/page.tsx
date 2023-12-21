@@ -20,7 +20,8 @@ export default async function Clippings() {
 
   
   return (
-    <main className="">
+    <main className="my-auto">
+      
       {pressClippings
         .sort(
           (a, b) =>

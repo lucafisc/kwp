@@ -1,14 +1,25 @@
+"use client";
 import React from "react";
 import Line from "./Line";
 import Carousel from "./Carousel";
 import Image from "next/image";
 import type { FilmType, ImageType } from "@/types/FilmTypes";
 import { Noto_Serif } from "next/font/google";
+import { motion } from "framer-motion";
 
 export const notoSerif = Noto_Serif({ subsets: ["latin"] });
 
 type Props = {
   film: FilmType;
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { ease: "easeOut", duration: 0.5 },
+  },
 };
 
 export default function FilmCard({ film }: Props) {
@@ -32,11 +43,8 @@ export default function FilmCard({ film }: Props) {
           </div>
         )}
         {!image && (
-          <div className="col-span-2 md:col-span-1 md:block hidden">
-            </div>
-        )
-
-        }
+          <div className="col-span-2 md:col-span-1 md:block hidden"></div>
+        )}
 
         {/* Text */}
         <div className="col-span-2 md:col-span-1">
@@ -55,25 +63,25 @@ export default function FilmCard({ film }: Props) {
             <p>{film.duration}</p>
             <p>
               {film.language.map((language, index) =>
-                                                                index === film.language.length - 1 ? language : language + ", "
+                index === film.language.length - 1 ? language : language + ", "
               )}
             </p>
           </div>
 
-          <div dangerouslySetInnerHTML={{ __html: film.synopsis }} className="mb-6"/>
+          <div
+            dangerouslySetInnerHTML={{ __html: film.synopsis }}
+            className="mb-6"
+          />
 
           {/* Synopsis, festivals, additional */}
           {film.additionalInformation.map((additional) => (
             <p className="mb-6">{additional}</p>
           ))}
 
-
           {film.festivals.map((festival) => (
             <p>{festival}</p>
           ))}
         </div>
-
-
       </div>
     </>
   );

@@ -1,4 +1,8 @@
 {
   "/page": "app/page.js",
-  "/press/page": "app/press/page.js"
+  "/press/page": "app/press/page.js",
+  "/films/page": "app/films/page.js",
+  "/not-found": "app/not-found.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/info/page": "app/info/page.js"
 }

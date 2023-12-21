@@ -1,9 +1,8 @@
 import Image from "next/image";
 import request from "graphql-request";
-import { ImageSchema, ThumbnailSchema } from "@/types/FilmTypes";
-import type { ImageType, ThumbnailType } from "@/types/FilmTypes";
-import {dynamicBlurDataUrl} from "@/app/dynamicBlurData"
-import { motion } from "framer-motion";
+import { ImageSchema, ThumbnailSchema } from "@/types/ImageTypes";
+import type { ImageType, ThumbnailType } from "@/types/ImageTypes";
+import AnimatedImage from "@/components/AnimatedImage";
 
 const WP_GRAPHQL_BASE = process.env.WP_GRAPHQL_BASE!;
 
@@ -15,16 +14,7 @@ export default async function Home() {
   return (
     <main className="flex flex-1 flex-col items-end justify-end">
       {image && (
-        
-        <div className="w-5/6 mt-20 pb-10 pr-2 max-w-md h-96 md:h-full">
-          <Image
-            src={image.guid}
-            alt={image.altText}
-            height={image.mediaDetails.height}
-            width={image.mediaDetails.width}
-            className="object-cover w-full h-full"
-          />
-        </div>
+        <AnimatedImage image={image} />
       )}
     </main>
   );

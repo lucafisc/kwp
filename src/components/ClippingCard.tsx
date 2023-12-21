@@ -18,20 +18,20 @@ const cardVariants = {
   visible: (index: number) => ({
     opacity: 1,
     y: 0,
-    transition: { ease: "easeOut", duration: 0.8, delay: index * 0.05 },
+    transition: { ease: "easeOut", duration: 0.5, delay: index * 0 },
   }),
 };
 
 export default function FilmCard({ pressClipping, index }: Props) {
   return (
     <>
+      {index === 0 && appearingLine()}
       <motion.div
         initial="hidden"
         animate="visible"
         variants={cardVariants}
         custom={index}
       >
-        <Line borderSize={1} />
         <Link href={pressClipping.link}>
           <div className="grid grid-cols-5 gap-4 py-4 group text-black cursor-pointer">
             <h1 className="col-span-1">{pressClipping.pressDate}</h1>
@@ -44,6 +44,18 @@ export default function FilmCard({ pressClipping, index }: Props) {
           </div>
         </Link>
       </motion.div>
+      {appearingLine()}
     </>
   );
+
+  function appearingLine() {
+    return <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.8, ease: "easeIn", delay: 0.2 }}
+    >
+      <Line borderSize={1} />
+    </motion.div>;
+  }
 }
