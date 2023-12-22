@@ -11,6 +11,11 @@
       "static/chunks/main-app.js",
       "static/chunks/app/not-found.js"
     ],
+    "/info/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/info/page.js"
+    ],
     "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -28,10 +33,10 @@
       "static/css/app/films/page.css",
       "static/chunks/app/films/page.js"
     ],
-    "/info/page": [
+    "/error": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/info/page.js"
+      "static/chunks/app/error.js"
     ]
   }
 }

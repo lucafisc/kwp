@@ -1,4 +1,4 @@
-// File: /home/lde-ross/repos/kwp/src/app/press/page.tsx
+// File: /Users/lucafischer/repos/kwp/src/app/press/page.tsx
 import * as entry from '../../../../src/app/press/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

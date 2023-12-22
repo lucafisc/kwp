@@ -3,7 +3,8 @@ import React from "react";
 import Line from "./Line";
 import Carousel from "./Carousel";
 import Image from "next/image";
-import type { FilmType, ImageType } from "@/types/FilmTypes";
+import type { FilmType } from "@/types/FilmTypes";
+import type { ImageType } from "@/types/ImageTypes";
 import { Noto_Serif } from "next/font/google";
 import { motion } from "framer-motion";
 
@@ -24,14 +25,20 @@ const cardVariants = {
 
 export default function FilmCard({ film }: Props) {
   const image: ImageType | null = film.featuredImage?.node || null;
+  const trailer: string | null = film.trailer || null;
+  console.log(trailer);
+  const [showTrailer, setShowTrailer] = React.useState(false);
 
   return (
     <>
       <Line />
 
-      {/* Image */}
-      <div className="text-black grid grid-cols-2 grid-rows-2 gap-4">
-        {image && (
+      <div
+        className="grid grid-cols-2 grid-rows-2 gap-4 md:grid-rows-1"
+        onClick={() => setShowTrailer((prev) => !prev)}
+      >
+        {/* Image */}
+        {image && !showTrailer && (
           <div className="bg-white bg-opacity-10 col-span-2 md:col-span-1">
             <Image
               src={image.guid}
@@ -42,7 +49,16 @@ export default function FilmCard({ film }: Props) {
             />
           </div>
         )}
-        {!image && (
+
+        {/* Trailer */}
+        {showTrailer && trailer && (
+          <div
+            dangerouslySetInnerHTML={{ __html: trailer }}
+            className="col-span-2 md:col-span-1"
+          />
+        )}
+
+        {((!image && !showTrailer) || (showTrailer && !trailer)) && (
           <div className="col-span-2 md:col-span-1 md:block hidden"></div>
         )}
 

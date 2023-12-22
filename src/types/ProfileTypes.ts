@@ -3,6 +3,7 @@ import { ImageSchema } from './ImageTypes';
 
 export const SocialMediaSchema = z.object({
 	node: z.object({
+		id: z.string(),
 		platformName: z.string(),
 		socialLink: z.string(),
 	})
@@ -17,3 +18,5 @@ export const ProfileSchema = z.object({
 		edges: z.array(SocialMediaSchema)
 	})
 });
+
+export type Profile = z.infer<typeof ProfileSchema>;
