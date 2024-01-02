@@ -18,8 +18,12 @@ const linkTargets: LinkTarget[] = [
     url: "/press",
   },
   {
-    text: "Info",
-    url: "/info",
+    text: "About",
+    url: "/about",
+  },
+  {
+    text: "Contact",
+    url: "/contact",
   },
 ];
 

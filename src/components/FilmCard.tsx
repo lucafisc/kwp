@@ -7,6 +7,8 @@ import type { FilmType } from "@/types/FilmTypes";
 import type { ImageType } from "@/types/ImageTypes";
 import { Noto_Serif } from "next/font/google";
 import { motion } from "framer-motion";
+import { VimeoVideo } from "./VimeoVideo";
+import ReactPlayer from 'react-player'
 
 export const notoSerif = Noto_Serif({ subsets: ["latin"] });
 
@@ -52,10 +54,7 @@ export default function FilmCard({ film }: Props) {
 
         {/* Trailer */}
         {showTrailer && trailer && (
-          <div
-            dangerouslySetInnerHTML={{ __html: trailer }}
-            className="col-span-2 md:col-span-1"
-          />
+          <ReactPlayer url='https://vimeo.com/726429328' />
         )}
 
         {((!image && !showTrailer) || (showTrailer && !trailer)) && (

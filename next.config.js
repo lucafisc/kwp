@@ -1,8 +1,17 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 	images: {
-		domains: ['picsum.photos', 'luca.webworker.berlin'],
-	  },
+		remotePatterns: [
+			{
+				protocol: 'https',
+				hostname: 'picsum.photos',
+			},
+			{
+				protocol: 'http',
+				hostname: 'kwp.local',
+			},
+		],
+	},
 }
 
-module.exports = nextConfig
+module.exports = nextConfig;
