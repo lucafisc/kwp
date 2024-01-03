@@ -33,8 +33,6 @@ export default function FilmCard({ film }: Props) {
 
   return (
     <>
-      <Line />
-
       <div
         className="grid grid-cols-2 grid-rows-2 gap-4 md:grid-rows-1"
         onClick={() => setShowTrailer((prev) => !prev)}

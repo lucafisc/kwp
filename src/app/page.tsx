@@ -13,7 +13,7 @@ export default async function Home() {
     <main className="flex flex-1 flex-col items-end justify-end">
       {image && (
         <AnimatedImage>
-          <div className="w-5/6 mt-20 pb-10 pr-2 max-w-md h-96 md:h-full">
+          <div className="pb-10 pr-2 max-w-md md:max-w-3xl h-96 md:h-full w-full">
             <Image
               src={image.guid}
               alt={image.altText}

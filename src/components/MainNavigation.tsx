@@ -37,7 +37,7 @@ function getMenuItems(pathname: string): ReactNode {
   return linkTargets.map(({ text, url }) => {
     const currentLink = url === pathname;
     return (
-      <li key={url} className={`${currentLink ? 'font-bold' : 'font-normal'} text-2xl hover:font-bold transition-all active:font-bold`}>
+      <li key={url} className={`${currentLink ? 'font-bold' : 'font-normal'} text-2xl hover:font-bold active:text-accent transition-all active:font-bold cursor-pointer`}>
         <Link href={url}>{text}</Link>
       </li>
     );

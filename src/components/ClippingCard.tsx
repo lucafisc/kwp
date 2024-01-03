@@ -32,17 +32,17 @@ export default function FilmCard({ pressClipping, index }: Props) {
         variants={cardVariants}
         custom={index}
       >
-        <Link href={pressClipping.link}>
-          <div className="grid grid-cols-5 gap-4 py-4 group cursor-pointer">
-            <h1 className="col-span-1">{pressClipping.pressDate.substring(0,4)}</h1>
-            <h1 className="col-span-3 group-hover:font-bold transition-all">
+         <a href={pressClipping.pressLink} target="_blank" rel="noopener noreferrer">
+          <div className="grid grid-cols-10 gap-4 py-4 group cursor-pointer">
+            <h1 className="col-span-2">{pressClipping.pressDate.substring(0,4)}</h1>
+            <h1 className="col-span-5 group-hover:font-bold transition-all">
               {pressClipping.title}
             </h1>
-            <h1 className="col-span-1 text-right">
+            <h1 className="col-span-3 text-right hyphens-auto break-words">
               {pressClipping.pressAuthor}
             </h1>
           </div>
-        </Link>
+        </a>
       </motion.div>
       {appearingLine()}
     </>
@@ -55,7 +55,7 @@ export default function FilmCard({ pressClipping, index }: Props) {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.8, ease: "easeIn", delay: 0.2 }}
     >
-      <Line borderSize={1} />
+      <hr className="border-primary border-1 w-full"></hr>
     </motion.div>;
   }
 }

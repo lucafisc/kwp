@@ -40,7 +40,7 @@ async function getClippings() {
 	{
 		pressClippings {
 			nodes {
-			  link
+			  pressLink
 			  title
 			  id
 			  pressAuthor
