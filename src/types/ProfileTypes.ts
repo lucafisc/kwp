@@ -9,14 +9,19 @@ export const SocialMediaSchema = z.object({
 	})
 })
 
-export const ProfileSchema = z.object({
-	id: z.string(),
-	bio: z.string(),
+export const ContactSchema = z.object({
 	email: z.string(),
-	profilePicture: ImageSchema,
 	socialMedia: z.object({
 		edges: z.array(SocialMediaSchema)
 	})
+})
+
+export const ProfileSchema = z.object({
+	bio: z.string(),
+	featuredImage: z.object({
+		node: ImageSchema,
+	}).nullish()
 });
 
-export type Profile = z.infer<typeof ProfileSchema>;
+export type ContactType = z.infer<typeof ContactSchema>;
+export type ProfileType = z.infer<typeof ProfileSchema>;

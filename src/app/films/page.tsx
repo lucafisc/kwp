@@ -1,9 +1,9 @@
 import React from "react";
-import request, { gql } from "graphql-request";
+import request from "graphql-request";
 import type { FilmType } from "@/types/FilmTypes";
 import { FilmSchema } from "@/types/FilmTypes";
-import FilmAccordion from "@/components/FilmAccordion";
 import type { Metadata } from "next";
+import FilmAccordion from "@/components/FilmAccordion";
 
 export const metadata : Metadata = {
 	title: "Films",
@@ -19,9 +19,9 @@ export default async function Films() {
   const films = await getFilms();
   return (
     <main className="my-auto">
-		{films.map((film, index) => (
-			<FilmAccordion key={film.id} film={film} index={index}/>
-		))}	
+		    {films.map((film, index) => (
+                <FilmAccordion key={film.id} film={film} index={index} />
+            ))}
 	</main>
   );
 }

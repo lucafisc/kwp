@@ -6,7 +6,6 @@ import type { Metadata } from "next";
 import AnimatedImage from "@/components/AnimatedImage";
 import type { ImageType } from "@/types/ImageTypes";
 import Image from "next/image";
-import { notoSerif } from "@/components/Logo";
 import Link from "next/link";
 
 export const metadata: Metadata = {
