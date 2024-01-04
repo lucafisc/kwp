@@ -25,7 +25,10 @@ const config: Config = {
         primary: '#2A3080',
         secondary: '#BEBDD4',
         accent: '#E0491F'
-      }
+      },
+      spacing: {
+        button: '62px',
+       }
     },
   },
   plugins: [],
