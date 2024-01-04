@@ -50,7 +50,7 @@ export default function FilmAccordion({ film, index }: Props) {
                     onClick={() => setAccordionOpen((prevAccordionOpen) => !prevAccordionOpen)}
 
                     className="flex items-center justify-between w-full py-3 group">
-                    <div className="text-left md:grid md:grid-cols-2 w-full">
+                    <div className="text-left md:grid md:grid-cols-2 md:gap-4 w-full">
                         <h1 className="font-bold">{film.filmtitle + ` (${film.year})`}</h1>
                         <div >
                             <p>
@@ -99,27 +99,43 @@ export default function FilmAccordion({ film, index }: Props) {
                         : 'grid-rows-[0fr] opacity-0'
                     }`}
             >
-                <div className="overflow-hidden md:grid md:grid-cols-2 w-full md:pr-button">
-                    <div className="py-6">
-
+                <div className="overflow-hidden md:grid md:grid-cols-2 w-full md:pr-button md:gap-4">
+                    <div className="py-6 flex flex-col justify-start items-start">
                         <div
                             dangerouslySetInnerHTML={{ __html: film.synopsis }}
                             className="mb-6"
                         />
-                        {film.additionalInformation.map((additional) => (
-                            <p className="mb-6">{additional}</p>
+                        {film.additionalInformation.map((additional, index) => (
+                            <p key={index} className="mb-6">{additional}</p>
                         ))}
 
-                        {film.festivals.map((festival) => (
-                            <p>{festival}</p>
+                        {film.festivals.map((festival, index) => (
+                            <p key={index} className="mb-6">{festival}</p>
                         ))}
+                        <button className="mt-auto bg-slate-500 p-8">View trailer</button>
+
                     </div>
                     <div className="py-6">
-                        bla
+                        {image && <div className={`h-full bg-white transition-all ease-in-out duration-1000 ${accordionOpen
+                            ? 'bg-opacity-10'
+                            : 'bg-opacity-0'
+                            }`}>
+                            <Image
+                                src={image.guid}
+                                alt={image.altText}
+                                height={image.mediaDetails.height}
+                                width={image.mediaDetails.width}
+                                className={`object-cover md:w-5/6 xs:w-4/6 w-full mx-auto drop-shadow-md p-4 transition-all ease-in-out duration-1000
+                                ${accordionOpen
+                                        ? 'opacity-100 '
+                                        : 'opacity-0 scale-95'
+                                    }`}
+                            />
+                        </div>}
                     </div>
                 </div>
             </div>
             <AppearingLine />
-        </div>
+        </div >
     );
 }
