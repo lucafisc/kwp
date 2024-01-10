@@ -24,10 +24,10 @@ export default function FilmImage({ featuredImage, accordionOpen }: Props) {
                     alt={image.altText}
                     height={image.mediaDetails.height}
                     width={image.mediaDetails.width}
-                    className={`object-cover md:w-5/6 xs:w-4/6 w-full mx-auto drop-shadow-md p-4 transition-all ease-in-out duration-1000
+                    className={`object-cover md:w-5/6 xs:w-4/6 w-full mx-auto drop-shadow-md p-4 transition-all ease-out duration-1000
                 ${accordionOpen
                             ? 'opacity-100 '
-                            : 'opacity-0 scale-95'
+                            : 'opacity-0 scale-125'
                         }`}
                 />
             </div>}

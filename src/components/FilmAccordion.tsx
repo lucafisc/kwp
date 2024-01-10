@@ -94,7 +94,7 @@ export default function FilmAccordion({ film, index }: Props) {
             </motion.div>
 
             <div
-                className={`grid overflow-hidden transition-all duration-300 ease-in-out text-slate-600
+                className={`grid overflow-hidden transition-all duration-700 ease-in-out text-slate-600
                 ${accordionOpen
                         ? 'grid-rows-[1fr] opacity-100'
                         : 'grid-rows-[0fr] opacity-0'

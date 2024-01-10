@@ -18,7 +18,7 @@ export const revalidate = 600;
 export default async function Films() {
   const films = await getFilms();
   return (
-    <main className="my-auto">
+    <main className="">
 		    {films.map((film, index) => (
                 <FilmAccordion key={film.id} film={film} index={index} />
             ))}

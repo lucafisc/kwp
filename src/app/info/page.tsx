@@ -1,6 +1,6 @@
 import React from "react";
 import request, { gql } from "graphql-request";
-import type { Profile } from "@/types/ProfileTypes";
+import type { ProfileType } from "@/types/ProfileTypes";
 import { ProfileSchema } from "@/types/ProfileTypes";
 import type { Metadata } from "next";
 import AnimatedImage from "@/components/AnimatedImage";
@@ -19,11 +19,11 @@ const WP_GRAPHQL_BASE = process.env.WP_GRAPHQL_BASE!;
 export const revalidate = 600;
 
 export default async function Clippings() {
-  const profile = await getProfile();
-  const image: ImageType = profile.profilePicture;
+  // const profile = await getProfile();
+  // const image: ImageType = profile.profilePicture;
   return (
     <main className="my-auto  h-full">
-      <div className=" w-full h-full grid grid-rows-2 gap-4 md:grid-cols-2 md:grid-rows-1">
+      {/* <div className=" w-full h-full grid grid-rows-2 gap-4 md:grid-cols-2 md:grid-rows-1">
         <div className="w-full flex justify-center items-center">
           <AnimatedImage>
             <Image
@@ -50,53 +50,53 @@ export default async function Clippings() {
           </div>
           <div dangerouslySetInnerHTML={{ __html: profile.bio }} />
         </div>
-      </div>
+      </div> */}
     </main>
   );
 }
 
-async function getProfile() {
-  const query = `
-  {
-	profiles {
-	  nodes {
-		bio
-		email
-		id
-		profilePicture {
-		  altText
-		  guid
-		  mediaDetails {
-			height
-			width
-		  }
-		}
-		socialMedia {
-		  edges {
-			node {
-			  socialLink
-			  platformName
-			  id
-			}
-		  }
-		}
-	  }
-	}
-  }
-  `;
+// async function getProfile() {
+//   const query = `
+//   {
+// 	profiles {
+// 	  nodes {
+// 		bio
+// 		email
+// 		id
+// 		profilePicture {
+// 		  altText
+// 		  guid
+// 		  mediaDetails {
+// 			height
+// 			width
+// 		  }
+// 		}
+// 		socialMedia {
+// 		  edges {
+// 			node {
+// 			  socialLink
+// 			  platformName
+// 			  id
+// 			}
+// 		  }
+// 		}
+// 	  }
+// 	}
+//   }
+//   `;
 
-  try {
-    const response = (await request(WP_GRAPHQL_BASE, query)) as {
-      profiles: {
-        nodes: Profile[];
-      };
-    };
+//   try {
+//     const response = (await request(WP_GRAPHQL_BASE, query)) as {
+//       profiles: {
+//         nodes: Profile[];
+//       };
+//     };
 
-    const profile: Profile = ProfileSchema.parse(response.profiles.nodes[0]);
-    console.log(profile.profilePicture);
-    return profile;
-  } catch (error) {
-    console.error("Error fetching profile:", error);
-    return [];
-  }
-}
+//     const profile: Profile = ProfileSchema.parse(response.profiles.nodes[0]);
+//     console.log(profile.profilePicture);
+//     return profile;
+//   } catch (error) {
+//     console.error("Error fetching profile:", error);
+//     return [];
+//   }
+// }

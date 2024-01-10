@@ -2,7 +2,11 @@
 import React from "react";
 import Link from "next/link";
 
-const ErrorPage = ({ statusCode }) => {
+type Props = {
+  statusCode: number,
+}
+
+const ErrorPage = ({ statusCode } : Props) => {
   return (
     <main className="my-auto h-full">
       <div className="w-full h-full flex flex-col justify-center items-center">
