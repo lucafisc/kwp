@@ -20,7 +20,7 @@ export default async function About() {
     const image: ImageType | null = profile.featuredImage?.node ?? null;
 
     return (<main className="my-auto  h-full">
-        <div className=" w-full h-full grid grid-rows-2 gap-4 md:grid-cols-2 md:grid-rows-1">
+        <div className="w-full h-full grid grid-rows-2 gap-4 md:grid-cols-2 md:grid-rows-1">
             <div className="w-full flex justify-center items-center">
                 {image && <AnimatedImage>
                     <Image
