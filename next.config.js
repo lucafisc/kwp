@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+	// output: 'export',
 	images: {
 		remotePatterns: [
 			{
@@ -9,6 +10,10 @@ const nextConfig = {
 			{
 				protocol: 'http',
 				hostname: 'kwp.local',
+			},
+			{
+				protocol: 'http',
+				hostname: 'dashboard.kathymeng.fun',
 			},
 		],
 	},

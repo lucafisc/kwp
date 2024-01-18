@@ -41,6 +41,7 @@ async function getFilms() {
 				duration
 				language
 				trailer
+				fullMovie
 				additionalInformation
 				featuredImage {
 				  node {
@@ -69,10 +70,7 @@ async function getFilms() {
 
 	const films : FilmType[] = response.films.edges.map((film) => FilmSchema.parse(film.node))
 	// console log film title and trailer for each film
-	console.log(films);
-	console.log("Film title and trailer:");
-	films.forEach((film) => console.log(film.filmtitle, film.trailer));
-	
+	films.sort((a, b) => b.year - a.year);
 	return films;
   } catch (error) {
     console.error("Error fetching films:", error);

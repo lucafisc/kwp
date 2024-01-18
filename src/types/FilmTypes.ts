@@ -10,6 +10,7 @@ export const FilmSchema = z.object({
 	duration: z.string(),
 	synopsis: z.string(),
 	trailer: z.string().nullish(),
+	fullMovie: z.string().nullish(),
 	additionalInformation: z.array(z.string()),
 	festivals: z.array(z.string()),
 	featuredImage: z.object({

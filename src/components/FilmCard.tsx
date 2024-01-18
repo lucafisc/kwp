@@ -52,7 +52,7 @@ export default function FilmCard({ film }: Props) {
 
         {/* Trailer */}
         {showTrailer && trailer && (
-          <ReactPlayer url='https://vimeo.com/726429328' />
+          <ReactPlayer url={trailer} />
         )}
 
         {((!image && !showTrailer) || (showTrailer && !trailer)) && (
