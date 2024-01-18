@@ -21,10 +21,6 @@ const linkTargets: LinkTarget[] = [
     text: "About",
     url: "/about",
   },
-  {
-    text: "Contact",
-    url: "/contact",
-  },
 ];
 
 export default function MainNavigation() {
