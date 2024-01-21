@@ -1,17 +1,10 @@
 "use client";
 import React, { useState } from "react";
-import Line from "./Line";
-import Carousel from "./Carousel";
-import Image from "next/image";
 import type { FilmType } from "@/types/FilmTypes";
-import type { ImageType } from "@/types/ImageTypes";
 import { Noto_Serif } from "next/font/google";
 import { motion } from "framer-motion";
-import { VimeoVideo } from "./VimeoVideo";
-import ReactPlayer from 'react-player'
 import AppearingLine from "./AppearingLine";
-import { set } from "zod";
-import { IoPlaySharp } from "react-icons/io5";
+
 import FilmContent from "./FilmContent";
 
 export const notoSerif = Noto_Serif({ subsets: ["latin"] });
