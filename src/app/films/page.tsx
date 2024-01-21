@@ -6,8 +6,8 @@ import type { Metadata } from "next";
 import FilmAccordion from "@/components/FilmAccordion";
 
 export const metadata : Metadata = {
-	title: "Films",
-	description: "Films",
+	title: "Kathy Meng - Films",
+	description: "Kathy Meng's films",
 };
 
 const WP_GRAPHQL_BASE = process.env.WP_GRAPHQL_BASE!;

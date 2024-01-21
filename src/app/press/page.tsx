@@ -6,8 +6,8 @@ import type { Metadata } from "next";
 import ClippingCard from "@/components/ClippingCard";
 
 export const metadata: Metadata = {
-  title: "Press",
-  description: "Press",
+  title: "Kathy Meng - Press",
+  description: "Kathy Meng's press clippings",
 };
 
 const WP_GRAPHQL_BASE = process.env.WP_GRAPHQL_BASE!;

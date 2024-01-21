@@ -7,8 +7,8 @@ import { ImageType } from "@/types/ImageTypes";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-    title: "Films",
-    description: "Films",
+    title: "Kathy Meng - About",
+    description: "Kathy Meng's about page and contact information",
 };
 
 const WP_GRAPHQL_BASE = process.env.WP_GRAPHQL_BASE!;
