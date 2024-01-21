@@ -1,9 +1,7 @@
 "use client";
 import React from "react";
-import Line from "./Line";
 import type { ClippingType } from "@/types/ClippingTypes";
 import { Noto_Serif } from "next/font/google";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import AppearingLine from "./AppearingLine";
 

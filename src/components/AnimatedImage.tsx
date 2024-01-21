@@ -1,8 +1,6 @@
 "use client"
 import React, { ReactNode, useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
-import Image from "next/image";
-import type { ImageType } from "@/types/ImageTypes";
 
 type Props = {
     children: ReactNode;

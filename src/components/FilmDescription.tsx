@@ -22,7 +22,7 @@ export default function FilmDescription({ film }: Props) {
             ))}
 
             {film.festivals.map((festival, index) => (
-                <p key={index} className="mb-6">{festival}</p>
+                <p key={index}>{festival}</p>
             ))}
 
             {film.trailer && <button

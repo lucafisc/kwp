@@ -1,6 +1,4 @@
 import { FilmType } from "@/types/FilmTypes";
-import { ImageType } from "@/types/ImageTypes";
-import { IoPlaySharp } from "react-icons/io5";
 import FilmImage from "./FilmImage";
 import FilmDescription from "./FilmDescription";
 

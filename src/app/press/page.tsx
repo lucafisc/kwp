@@ -1,5 +1,5 @@
 import React from "react";
-import request, { gql } from "graphql-request";
+import request from "graphql-request";
 import type { ClippingType } from "@/types/ClippingTypes";
 import { ClippingSchema } from "@/types/ClippingTypes";
 import type { Metadata } from "next";

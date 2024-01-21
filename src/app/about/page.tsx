@@ -4,7 +4,6 @@ import { ProfileSchema, ProfileType, SocialMediaType } from "@/types/ProfileType
 import AnimatedImage from "@/components/AnimatedImage";
 import Image from "next/image";
 import { ImageType } from "@/types/ImageTypes";
-import Link from "next/link";
 
 export const metadata: Metadata = {
     title: "Kathy Meng - About",
