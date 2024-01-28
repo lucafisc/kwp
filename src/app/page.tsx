@@ -10,10 +10,10 @@ export default async function Home() {
   const image: ImageType | null = await getFeaturedImage();
 
   return (
-    <main className="flex flex-1 flex-col items-end justify-end">
+    <main className="flex flex-col items-end justify-end flex-1">
       {image && (
         <AnimatedImage>
-          <div className="pb-10 pr-2 max-w-md md:max-w-3xl h-96 md:h-full w-full">
+          <div className="w-full max-w-md pb-10 pr-2 md:max-w-3xl h-96 md:h-full">
             <Image
               src={image.guid}
               alt={image.altText}

@@ -7,7 +7,7 @@ export default function Header() {
   return (
     <div>
       <Line />
-      <div className="flex flex-col justify-between md:flex-row md:items-start mb-6">
+      <div className="flex flex-col justify-between mb-6 md:flex-row md:items-start">
         <Logo />
         <MainNavigation />
       </div>

@@ -12,8 +12,8 @@ export default function FilmContent({ film, accordionOpen }: Props) {
 
 
     return (
-        <div className="overflow-hidden md:grid md:grid-cols-2 w-full md:pr-button md:gap-4">
-            <div className="py-6 flex flex-col justify-start items-start">
+        <div className="w-full overflow-hidden md:grid md:grid-cols-2 md:pr-button md:gap-4">
+            <div className="flex flex-col items-start justify-start py-6">
                <FilmDescription film={film}/>
 
             </div>

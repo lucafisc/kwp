@@ -44,7 +44,7 @@ export default function FilmAccordion({ film, index }: Props) {
                     onClick={() => setAccordionOpen((prevAccordionOpen) => !prevAccordionOpen)}
 
                     className="flex items-center justify-between w-full py-3 group">
-                    <div className="text-left md:grid md:grid-cols-2 md:gap-4 w-full">
+                    <div className="w-full text-left md:grid md:grid-cols-2 md:gap-4">
                         <h1 className="font-bold">{film.filmtitle + ` (${film.year})`}</h1>
                         <div >
                             <p>
@@ -61,7 +61,7 @@ export default function FilmAccordion({ film, index }: Props) {
                         </div>
                     </div>
                     <svg
-                        className="fill-primary shrink-0 ml-8 group-hover:fill-accent transition-all"
+                        className="ml-8 fill-primary shrink-0 group-hover:fill-accent transition-all"
                         width="30"
                         height="30"
                         xmlns="http://www.w3.org/2000/svg"

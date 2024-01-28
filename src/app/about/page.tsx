@@ -19,9 +19,9 @@ export default async function About() {
     const profile: any = await getProfile();
     const image: ImageType | null = profile.featuredImage?.node ?? null;
 
-    return (<main className="my-auto  h-full">
+    return (<main className="h-full my-auto ">
         <div className="w-full h-full grid grid-rows-2 gap-4 md:grid-cols-2 md:grid-rows-1 ">
-            <div className="w-full flex justify-center items-center bg-white bg-opacity-10 p-4">
+            <div className="flex items-center justify-center w-full p-4 bg-white bg-opacity-10">
                 {image && <AnimatedImage>
                     <Image
                         src={image.guid}
@@ -35,13 +35,13 @@ export default async function About() {
             <div className="flex flex-col md:justify-center">
                 <div dangerouslySetInnerHTML={{ __html: profile.bio }} />
                 <br />
-                <a className="hover:font-bold cursor-pointer active:text-accent transition-all" href={`mailto:${profile.email}`} target="_blank" rel="noopener noreferrer">
+                <a className="cursor-pointer hover:font-bold active:text-accent transition-all" href={`mailto:${profile.email}`} target="_blank" rel="noopener noreferrer">
                     <p>{profile.email}</p>
                 </a>
 
                 {profile.socialmedia.edges.map((socialMedia : SocialMediaType) => {
                     return (
-                        <a className="hover:font-bold cursor-pointer active:text-accent transition-all" href={socialMedia.node.socialLink} target="_blank" rel="noopener noreferrer">
+                        <a className="cursor-pointer hover:font-bold active:text-accent transition-all" href={socialMedia.node.socialLink} target="_blank" rel="noopener noreferrer">
                             <p>{socialMedia.node.platformName}</p>
                         </a>
                     );

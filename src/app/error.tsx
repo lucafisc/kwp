@@ -8,10 +8,10 @@ type Props = {
 
 const ErrorPage = ({ statusCode } : Props) => {
   return (
-    <main className="my-auto h-full">
-      <div className="w-full h-full flex flex-col justify-center items-center">
-        <h1 className="text-4xl font-bold mb-4">Error {statusCode}</h1>
-        <p className="text-lg mb-6">
+    <main className="h-full my-auto">
+      <div className="flex flex-col items-center justify-center w-full h-full">
+        <h1 className="mb-4 text-4xl font-bold">Error {statusCode}</h1>
+        <p className="mb-6 text-lg">
           Oops! Something went wrong on our end. Please try again later.
         </p>
         <Link href="/">

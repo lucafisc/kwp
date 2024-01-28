@@ -32,12 +32,12 @@ export default function FilmCard({ pressClipping, index }: Props) {
         custom={index}
       >
          <a href={pressClipping.pressLink} target="_blank" rel="noopener noreferrer">
-          <div className="grid grid-cols-10 gap-4 py-4 group cursor-pointer">
+          <div className="py-4 cursor-pointer grid grid-cols-10 gap-4 group">
             <h1 className="col-span-2">{pressClipping.pressDate.substring(0,4)}</h1>
             <h1 className="col-span-5 group-hover:font-bold group-active:text-accent transition-all">
               {pressClipping.title}
             </h1>
-            <h1 className="col-span-3 text-right hyphens-auto break-words">
+            <h1 className="text-right break-words col-span-3 hyphens-auto">
               {pressClipping.pressAuthor}
             </h1>
           </div>

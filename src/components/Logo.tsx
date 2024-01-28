@@ -15,7 +15,7 @@ export const unbounded = Unbounded({
 
 export default function Logo() {
 	return (
-		<div className="text-5xl pb-4 group cursor-pointer w-full">
+		<div className="w-full pb-4 text-5xl cursor-pointer group">
 			<Link href="/">
 				<h1 className={`${unbounded.className} text-2xl group-active:text-accent transition-all`}>KATHY MENG</h1>
 			</Link>
