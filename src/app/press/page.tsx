@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 import ClippingCard from "@/components/ClippingCard";
 
 export const metadata: Metadata = {
-  title: "Kathy Meng - Press",
+  title: "Press",
   description: "Kathy Meng's press clippings",
 };
 

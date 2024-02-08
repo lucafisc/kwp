@@ -6,8 +6,15 @@ import Header from "@/components/Header";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Kathy Meng",
+  title: {
+    default: "Kathy Meng",
+    template: "%s - Kathy Meng",
+  },
   description: "Filmmaker Kathy Meng's portfolio site",
+  keywords: ["Kathy Meng", "filmmaker", "filmography", "portfolio", "cinema", "movies", "films"],
+  authors: {
+    name: "Kathy Meng",
+  }
 };
 
 export default function RootLayout({

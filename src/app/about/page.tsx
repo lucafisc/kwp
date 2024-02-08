@@ -6,7 +6,7 @@ import Image from "next/image";
 import { ImageType } from "@/types/ImageTypes";
 
 export const metadata: Metadata = {
-    title: "Kathy Meng - About",
+    title: "About",
     description: "Kathy Meng's about page and contact information",
 };
 

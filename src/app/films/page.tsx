@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 import FilmAccordion from "@/components/FilmAccordion";
 
 export const metadata : Metadata = {
-	title: "Kathy Meng - Films",
+	title: "Films",
 	description: "Kathy Meng's films",
 };
 
