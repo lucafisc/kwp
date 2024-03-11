@@ -1,9 +1,0 @@
-(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[601],{2856:function(e,r,t){Promise.resolve().then(t.bind(t,988))},988:function(e,r,t){"use strict";t.r(r);var n=t(7437);t(2265);var o=t(1396),s=t.n(o);r.default=e=>{let{statusCode:r}=e;return(0,n.jsx)("main",{className:"h-full my-auto",children:(0,n.jsxs)("div",{className:"flex flex-col items-center justify-center w-full h-full",children:[(0,n.jsxs)("h1",{className:"mb-4 text-4xl font-bold",children:["Error ",r]}),(0,n.jsx)("p",{className:"mb-6 text-lg",children:"Oops! Something went wrong on our end. Please try again later."}),(0,n.jsx)(s(),{href:"/",children:"Go back to the home page"})]})})}},622:function(e,r,t){"use strict";/**
- * @license React
- * react-jsx-runtime.production.min.js
- *
- * Copyright (c) Meta Platforms, Inc. and affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */var n=t(2265),o=Symbol.for("react.element"),s=Symbol.for("react.fragment"),l=Object.prototype.hasOwnProperty,a=n.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner,c={key:!0,ref:!0,__self:!0,__source:!0};function q(e,r,t){var n,s={},f=null,i=null;for(n in void 0!==t&&(f=""+t),void 0!==r.key&&(f=""+r.key),void 0!==r.ref&&(i=r.ref),r)l.call(r,n)&&!c.hasOwnProperty(n)&&(s[n]=r[n]);if(e&&e.defaultProps)for(n in r=e.defaultProps)void 0===s[n]&&(s[n]=r[n]);return{$$typeof:o,type:e,key:f,ref:i,props:s,_owner:a.current}}r.Fragment=s,r.jsx=q,r.jsxs=q},7437:function(e,r,t){"use strict";e.exports=t(622)},1396:function(e,r,t){e.exports=t(8326)}},function(e){e.O(0,[326,971,472,744],function(){return e(e.s=2856)}),_N_E=e.O()}]);
