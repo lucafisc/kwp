@@ -64,6 +64,7 @@ async function getClippings() {
     if (!response.ok) {
       throw new Error("Failed to fetch press clippings");
     }
+    console.log(response);
 
     const data = await response.json();
 
