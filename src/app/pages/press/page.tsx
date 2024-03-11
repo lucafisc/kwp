@@ -37,78 +37,78 @@ export default async function Clippings() {
   );
 }
 
-async function getClippings() {
-  const query = `
-    {
-      pressClippings {
-        nodes {
-          pressLink
-          title
-          id
-          pressAuthor
-          pressDate
-        }
-      }
-    }
-  `;
-
-  try {
-    const response = await fetch(WP_GRAPHQL_BASE, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ query }),
-    });
-
-    if (!response.ok) {
-      throw new Error("Failed to fetch press clippings");
-    }
-    console.log(response);
-
-    const data = await response.json();
-
-    const clippings: ClippingType[] = data.data.pressClippings.nodes.map(
-      (clipping: any) => ClippingSchema.parse(clipping)
-    );
-
-    return clippings;
-  } catch (error) {
-    console.error("Error fetching press clippings:", error);
-    return [];
-  }
-}
-
-
 // async function getClippings() {
 //   const query = `
-// 	{
-// 		pressClippings {
-// 			nodes {
-// 			  pressLink
-// 			  title
-// 			  id
-// 			  pressAuthor
-// 			  pressDate
-// 			}
-// 		  }
-// 	  }
-// 	`;
+//     {
+//       pressClippings {
+//         nodes {
+//           pressLink
+//           title
+//           id
+//           pressAuthor
+//           pressDate
+//         }
+//       }
+//     }
+//   `;
 
 //   try {
-//     const response = (await request(WP_GRAPHQL_BASE, query)) as {
-//       pressClippings: {
-//         nodes: ClippingType[];
-//       };
-//     };
+//     const response = await fetch(WP_GRAPHQL_BASE, {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify({ query }),
+//     });
 
-//     const clippings: ClippingType[] = response.pressClippings.nodes.map(
-//       (clipping) => ClippingSchema.parse(clipping)
+//     if (!response.ok) {
+//       throw new Error("Failed to fetch press clippings");
+//     }
+//     console.log(response);
+
+//     const data = await response.json();
+
+//     const clippings: ClippingType[] = data.data.pressClippings.nodes.map(
+//       (clipping: any) => ClippingSchema.parse(clipping)
 //     );
-//     // console.log(clippings);
+
 //     return clippings;
 //   } catch (error) {
 //     console.error("Error fetching press clippings:", error);
 //     return [];
 //   }
 // }
+
+
+async function getClippings() {
+  const query = `
+	{
+		pressClippings {
+			nodes {
+			  pressLink
+			  title
+			  id
+			  pressAuthor
+			  pressDate
+			}
+		  }
+	  }
+	`;
+
+  try {
+    const response = (await request(WP_GRAPHQL_BASE, query)) as {
+      pressClippings: {
+        nodes: ClippingType[];
+      };
+    };
+
+    const clippings: ClippingType[] = response.pressClippings.nodes.map(
+      (clipping) => ClippingSchema.parse(clipping)
+    );
+    // console.log(clippings);
+    return clippings;
+  } catch (error) {
+    console.error("Error fetching press clippings:", error);
+    return [];
+  }
+}
