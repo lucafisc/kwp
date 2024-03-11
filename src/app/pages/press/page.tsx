@@ -1,7 +1,7 @@
 import React from "react";
 import request from "graphql-request";
 import type { ClippingType } from "@/types/ClippingTypes";
-import { ClippingSchema, ClippingType } from "@/types/ClippingTypes";
+import { ClippingSchema } from "@/types/ClippingTypes";
 import type { Metadata } from "next";
 import ClippingCard from "@/components/ClippingCard";
 
