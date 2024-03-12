@@ -12,8 +12,8 @@ export const metadata : Metadata = {
 
 const WP_GRAPHQL_BASE = process.env.WP_GRAPHQL_BASE!;
 
-// Renews Cache for this route every 600 seconds
-export const revalidate = 600;
+// Renews Cache for this route every 60 seconds
+export const revalidate = 5;
 
 export default async function Films() {
   const films = await getFilms();
@@ -69,7 +69,6 @@ async function getFilms() {
     };
 
 	const films : FilmType[] = response.films.edges.map((film) => FilmSchema.parse(film.node))
-	// console log film title and trailer for each film
 	films.sort((a, b) => b.year - a.year);
 	return films;
   } catch (error) {
