@@ -3,11 +3,10 @@ import { ImageSchema } from './ImageTypes';
 
 export const FilmTeaserSchema = z.object({
 	id: z.string(),
+	slug: z.string(),
 	filmtitle: z.string(),
 	year: z.number(),
-	still: z.object({
-		node: ImageSchema,
-	}).nullish()
+	still: ImageSchema.nullish(),
 });
 
 export type FilmTeaserType = z.infer<typeof FilmTeaserSchema>;

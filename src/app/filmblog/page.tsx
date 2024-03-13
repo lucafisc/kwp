@@ -2,6 +2,7 @@ import request from "graphql-request";
 import type { Metadata } from "next";
 import type { FilmTeaserType } from "@/types/FilmTypes";
 import { FilmTeaserSchema } from "@/types/FilmTypes";
+import FilmTeaser from "@/components/FilmTeaser";
 
 export const metadata : Metadata = {
 	title: "Films",
@@ -18,7 +19,7 @@ export default async function FilmsPage() {
     return (
         <main>
             <h1>
-                Films works!
+                {teasers.map((teaser) => <FilmTeaser key={teaser.id} {...teaser} />)}
             </h1>
         </main>
     )
@@ -31,6 +32,7 @@ const query = `
       edges {
         node {
           id
+          slug
           filmtitle
           year
           still {
@@ -56,7 +58,6 @@ try {
 
         }
     };
-
     const teasers : FilmTeaserType[] = response.films.edges.map((filmTeaser) => FilmTeaserSchema.parse(filmTeaser.node));
     teasers.sort((a, b) => a.year - b.year);
     return teasers;
