@@ -1,6 +1,17 @@
 import z from 'zod';
 import { ImageSchema } from './ImageTypes';
 
+export const FilmTeaserSchema = z.object({
+	id: z.string(),
+	filmtitle: z.string(),
+	year: z.number(),
+	still: z.object({
+		node: ImageSchema,
+	}).nullish()
+});
+
+export type FilmTeaserType = z.infer<typeof FilmTeaserSchema>;
+
 export const FilmSchema = z.object({
 	id: z.string(),
 	filmtitle: z.string(),

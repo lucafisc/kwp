@@ -13,7 +13,7 @@ export const metadata : Metadata = {
 const WP_GRAPHQL_BASE = process.env.WP_GRAPHQL_BASE!;
 
 // Renews Cache for this route every 60 seconds
-export const revalidate = 5;
+export const revalidate = 60;
 
 export default async function Films() {
   const films = await getFilms();
