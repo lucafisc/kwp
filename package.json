@@ -9,9 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "cloudinary": "^2.0.3",
     "framer-motion": "^10.18.0",
     "graphql-request": "^6.1.0",
     "next": "13.4.9",
+    "next-cloudinary": "^6.3.0",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^5.0.1",

@@ -16,6 +16,7 @@ const nextConfig = {
 				protocol: 'http',
 				hostname: 'dashboard.kathymeng.fun',
 			},
+			
 		],
 	},
 }

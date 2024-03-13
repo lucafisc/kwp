@@ -13,9 +13,7 @@ const WP_GRAPHQL_BASE = process.env.WP_GRAPHQL_BASE!;
 export const revalidate = 60;
 
 export default async function FilmsPage() {
-    console.log("FilmsPage");
     const teasers = await getTeasers();
-    console.log("teasers", teasers);
     return (
         <main>
             <h1>
