@@ -1,8 +1,9 @@
-import Image from "next/image";
 import request from "graphql-request";
 import { ImageSchema, ThumbnailSchema } from "@/types/ImageTypes";
 import type { ImageType, ThumbnailType } from "@/types/ImageTypes";
 import AnimatedImage from "@/components/AnimatedImage";
+import CloudinaryImage from "@/components/CloudinaryImage";
+import { useParentDimensions } from "@/hooks/useParentDimensions";
 
 const WP_GRAPHQL_BASE = process.env.WP_GRAPHQL_BASE!;
 
@@ -11,19 +12,7 @@ export default async function Home() {
 
   return (
     <main className="flex flex-1 flex-col items-end justify-end">
-      {image && (
-        <AnimatedImage>
-          <div className="h-96 w-full max-w-md pb-10 pr-2 md:h-full md:max-w-3xl">
-            <Image
-              src={image.guid}
-              alt={image.altText}
-              height={image.mediaDetails.height}
-              width={image.mediaDetails.width}
-              className="h-full w-full object-cover"
-            />
-          </div>
-        </AnimatedImage>
-      )}
+      {image && <CloudinaryImage image={image} />}
     </main>
   );
 }

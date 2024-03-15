@@ -1,7 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 export function useParentDimensions(elementId: string) {
-  const [parentDimensions, setParentDimensions] = useState<{ width: number; height: number }>({ width: 0, height: 0 });
+  const [parentDimensions, setParentDimensions] = useState<{
+    width: number;
+    height: number;
+  }>({ width: 0, height: 0 });
 
   useEffect(() => {
     const getParentDimensions = () => {
@@ -17,17 +20,16 @@ export function useParentDimensions(elementId: string) {
     };
 
     getParentDimensions();
-    window.addEventListener('resize', getParentDimensions);
+    window.addEventListener("resize", getParentDimensions);
 
     return () => {
-      window.removeEventListener('resize', getParentDimensions);
+      window.removeEventListener("resize", getParentDimensions);
     };
   }, [elementId]);
 
   useEffect(() => {
-    console.log("new parentDimensions",parentDimensions);
-  }
-  , [parentDimensions]);
+    console.log("new parentDimensions", parentDimensions);
+  }, [parentDimensions]);
 
   return parentDimensions;
 }

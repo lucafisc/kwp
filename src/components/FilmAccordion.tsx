@@ -97,7 +97,7 @@ export default function FilmAccordion({ film, index }: Props) {
                     : "grid-rows-[0fr] opacity-0"
                 }`}
       >
-        <FilmContent film={film}/>
+        <FilmContent film={film} />
       </div>
       <AppearingLine />
     </div>

@@ -6,7 +6,6 @@ import { FilmSchema } from "@/types/FilmTypes";
 import FilmAccordion from "@/components/FilmAccordion";
 import FilmPage from "@/components/FilmPage";
 
-
 type Props = {
   params: {
     slug: string;
@@ -15,7 +14,6 @@ type Props = {
 
 const WP_GRAPHQL_BASE = process.env.WP_GRAPHQL_BASE!;
 export const revalidate = 60;
-
 
 export async function generateMetadata({ params: { slug } }: Props) {
   const { filmtitle, synopsis } = await getFilmData(slug);

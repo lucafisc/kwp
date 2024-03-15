@@ -5,7 +5,6 @@ import { Noto_Serif } from "next/font/google";
 import { motion } from "framer-motion";
 import AppearingLine from "./AppearingLine";
 import { unbounded } from "./Logo";
-
 import FilmContent from "./FilmContent";
 import { CldImage } from "next-cloudinary";
 import { useParentDimensions } from "@/hooks/useParentDimensions";
@@ -41,7 +40,7 @@ export default function FilmPage({ film }: Props) {
             height={300}
             crop="fill"
             gravity="auto"
-            className="rounded-3xl mt-12 mb-6 shadow-lg"
+            className="mb-6 mt-12 rounded-3xl shadow-lg"
           />
         )}
         <motion.div initial="hidden" animate="visible" variants={cardVariants}>

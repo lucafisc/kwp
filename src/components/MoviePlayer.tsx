@@ -18,7 +18,7 @@ export default function MoviePlayer({ label, movie }: Props) {
       <button
         aria-label={label}
         onClick={() => setShowMovie((previousState) => !previousState)}
-        className="mt-4 flex items-center justify-between gap-1 rounded-full border border-primary bg-primary px-12 py-4 text-xl text-secondary transition-all active:scale-95 hover:brightness-125"
+        className="mt-4 flex items-center justify-between gap-1 rounded-full border border-primary bg-primary px-12 py-4 text-xl text-secondary transition-all hover:brightness-125 active:scale-95"
       >
         <IoPlaySharp />
         {label}

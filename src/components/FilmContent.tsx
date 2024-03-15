@@ -13,10 +13,7 @@ export default function FilmContent({ film }: Props) {
         <FilmDescription film={film} />
       </div>
       <div className="py-6">
-        <FilmImage
-          featuredImage={film.poster}
-          accordionOpen={true}
-        />
+        <FilmImage featuredImage={film.poster} accordionOpen={true} />
       </div>
     </div>
   );
