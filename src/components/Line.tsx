@@ -5,7 +5,7 @@ type LineProps = {
 };
 
 const Line: FC<LineProps> = ({ borderSize = 4 }) => {
-  const className = `border-primary border-4 w-full`;
+  const className = `border-primary border-${borderSize} w-full`;
 
   return <hr className={className}></hr>;
 };

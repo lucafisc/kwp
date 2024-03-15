@@ -75,7 +75,6 @@ export default function FilmPage({ film }: Props) {
           </div>
         </motion.div>
       </div>
-      <AppearingLine />
     </>
   );
 }
