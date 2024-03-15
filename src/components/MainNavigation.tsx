@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { ReactNode } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
@@ -33,7 +33,10 @@ function getMenuItems(pathname: string): ReactNode {
   return linkTargets.map(({ text, url }) => {
     const currentLink = url === pathname;
     return (
-      <li key={url} className={`${currentLink ? 'font-bold' : 'font-normal'} text-2xl hover:font-bold active:text-accent transition-all active:font-bold cursor-pointer`}>
+      <li
+        key={url}
+        className={`${currentLink ? "font-bold" : "font-normal"} cursor-pointer text-2xl transition-all hover:font-bold active:font-bold active:text-accent`}
+      >
         <Link href={url}>{text}</Link>
       </li>
     );

@@ -1,9 +1,9 @@
-"use client"
+"use client";
 import React, { ReactNode, useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 
 type Props = {
-    children: ReactNode;
+  children: ReactNode;
 };
 
 export default function AnimatedImage({ children }: Props) {
@@ -12,8 +12,11 @@ export default function AnimatedImage({ children }: Props) {
   // Animation variants
   const fadeInVariants = {
     hidden: { filter: "blur(10px)", opacity: 0 },
-    visible: { filter: "blur(0px)", opacity: 1, transition: { duration: 1, ease: "easeInOut" } },
-
+    visible: {
+      filter: "blur(0px)",
+      opacity: 1,
+      transition: { duration: 1, ease: "easeInOut" },
+    },
   };
 
   // Trigger animation on component mount
@@ -22,11 +25,7 @@ export default function AnimatedImage({ children }: Props) {
   }, []);
 
   return (
-    <motion.div
-      initial="hidden"
-      animate={controls}
-      variants={fadeInVariants}
-    >
+    <motion.div initial="hidden" animate={controls} variants={fadeInVariants}>
       {children}
     </motion.div>
   );

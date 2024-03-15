@@ -10,12 +10,12 @@ type Props = {
 
 export default function FilmDescription({ film }: Props) {
   return (
-    <>
+    <div className="flex h-full flex-col">
       <div
         dangerouslySetInnerHTML={{ __html: film.synopsis }}
         className="mb-6"
       />
-      
+
       {film.additionalInformation.map((additional, index) => (
         <p key={index} className="mb-6">
           {additional}
@@ -25,9 +25,10 @@ export default function FilmDescription({ film }: Props) {
       {film.festivals.map((festival, index) => (
         <p key={index}>• {festival}</p>
       ))}
-
-      <MoviePlayer label="trailer" movie={film.trailer} />
-      <MoviePlayer label="full movie" movie={film.fullMovie} />
-    </>
+      <div className="mt-auto">
+        <MoviePlayer label="trailer" movie={film.trailer} />
+        <MoviePlayer label="full movie" movie={film.fullMovie} />
+      </div>
+    </div>
   );
 }

@@ -7,16 +7,14 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-	<main className="h-full my-auto">
-	<div className="flex flex-col items-center justify-center w-full h-full">
-	  <h1 className="mb-4 text-4xl font-bold">404 - Not Found</h1>
-	  <p className="mb-6 text-lg">
-		Oops! The page you're looking for doesn't exist.
-	  </p>
-	  <Link href="/">
-		Go back to the home page
-	  </Link>
-	</div>
-  </main>
+    <main className="my-auto h-full">
+      <div className="flex h-full w-full flex-col items-center justify-center">
+        <h1 className="mb-4 text-4xl font-bold">404 - Not Found</h1>
+        <p className="mb-6 text-lg">
+          Oops! The page you're looking for doesn't exist.
+        </p>
+        <Link href="/">Go back to the home page</Link>
+      </div>
+    </main>
   );
 }

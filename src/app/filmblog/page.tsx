@@ -4,27 +4,27 @@ import type { FilmTeaserType } from "@/types/FilmTypes";
 import { FilmTeaserSchema } from "@/types/FilmTypes";
 import FilmTeaser from "@/components/FilmTeaser";
 
-export const metadata : Metadata = {
-	title: "Films",
-	description: "Kathy Meng's films",
+export const metadata: Metadata = {
+  title: "Films",
+  description: "Kathy Meng's films",
 };
 
 const WP_GRAPHQL_BASE = process.env.WP_GRAPHQL_BASE!;
 export const revalidate = 60;
 
 export default async function FilmsPage() {
-    const teasers = await getTeasers();
-    return (
-        <main>
-            <h1>
-                {teasers.map((teaser) => <FilmTeaser key={teaser.id} {...teaser} />)}
-            </h1>
-        </main>
-    )
+  const teasers = await getTeasers();
+  return (
+    <main>
+      {teasers.map((teaser) => (
+        <FilmTeaser key={teaser.id} {...teaser} />
+      ))}
+    </main>
+  );
 }
 
 async function getTeasers() {
-const query = `
+  const query = `
 {
     films {
       edges {
@@ -45,24 +45,23 @@ const query = `
       }
     }
   }
-`
+`;
 
-try {
+  try {
     const response = (await request(WP_GRAPHQL_BASE, query)) as {
-        films: {
-            edges: {
-                node: FilmTeaserType;
-            }[];
-
-        }
+      films: {
+        edges: {
+          node: FilmTeaserType;
+        }[];
+      };
     };
-    const teasers : FilmTeaserType[] = response.films.edges.map((filmTeaser) => FilmTeaserSchema.parse(filmTeaser.node));
-    teasers.sort((a, b) => a.year - b.year);
+    const teasers: FilmTeaserType[] = response.films.edges.map((filmTeaser) =>
+      FilmTeaserSchema.parse(filmTeaser.node),
+    );
+    teasers.sort((a, b) => b.year - a.year);
     return teasers;
-
-} catch (error) {
+  } catch (error) {
     console.error("Error fetching films:", error);
-	throw error;
-}
-
+    throw error;
+  }
 }

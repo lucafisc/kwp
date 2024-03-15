@@ -11,10 +11,18 @@ export const metadata: Metadata = {
     template: "%s - Kathy Meng",
   },
   description: "Filmmaker Kathy Meng's portfolio site",
-  keywords: ["Kathy Meng", "filmmaker", "filmography", "portfolio", "cinema", "movies", "films"],
+  keywords: [
+    "Kathy Meng",
+    "filmmaker",
+    "filmography",
+    "portfolio",
+    "cinema",
+    "movies",
+    "films",
+  ],
   authors: {
     name: "Kathy Meng",
-  }
+  },
 };
 
 export default function RootLayout({
@@ -24,7 +32,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-secondary max-w-7xl ml-auto mr-auto p-3 min-h-screen flex flex-col text-primary`}>
+      <body
+        className={`${inter.className} ml-auto mr-auto flex min-h-screen max-w-7xl flex-col bg-secondary p-3 text-primary`}
+      >
         <Header />
         {children}
       </body>

@@ -13,12 +13,12 @@ export default function MoviePlayer({ label, movie }: Props) {
   if (!movie) {
     return null;
   }
-  return  (
+  return (
     <>
       <button
         aria-label={label}
         onClick={() => setShowMovie((previousState) => !previousState)}
-        className="flex items-center justify-between gap-1 p-2 mt-4 transition-all border rounded-full border-primary text-primary hover:bg-primary hover:text-secondary active:scale-95 "
+        className="mt-4 flex items-center justify-between gap-1 rounded-full border border-primary bg-primary px-12 py-4 text-xl text-secondary transition-all active:scale-95 hover:brightness-125"
       >
         <IoPlaySharp />
         {label}

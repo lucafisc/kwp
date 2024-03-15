@@ -18,17 +18,20 @@ export const revalidate = 60;
 export default async function Clippings() {
   const pressClippings = await getClippings();
 
-  
   return (
     <main className="my-auto">
       {pressClippings
         .sort(
           (a, b) =>
             new Date(b.pressDate as string).getTime() -
-            new Date(a.pressDate as string).getTime()
+            new Date(a.pressDate as string).getTime(),
         )
         .map((pressClipping, index) => (
-          <ClippingCard key={pressClipping.id} pressClipping={pressClipping} index={index}/>
+          <ClippingCard
+            key={pressClipping.id}
+            pressClipping={pressClipping}
+            index={index}
+          />
         ))}
     </main>
   );
@@ -57,7 +60,7 @@ async function getClippings() {
     };
 
     const clippings: ClippingType[] = response.pressClippings.nodes.map(
-      (clipping) => ClippingSchema.parse(clipping)
+      (clipping) => ClippingSchema.parse(clipping),
     );
     console.log(clippings);
     return clippings;

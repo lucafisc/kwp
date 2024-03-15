@@ -1,14 +1,13 @@
 const baseUrl =
-  process.env.NODE_ENV === 'development'
-    ? 'http://localhost:3000/'
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:3000/"
     : process.env.NEXT_PUBLIC_DOMAIN;
 
 export async function dynamicBlurDataUrl(url) {
-
   const base64str = await fetch(
-    `${baseUrl}/_next/image?url=${url}&w=16&q=75`
+    `${baseUrl}/_next/image?url=${url}&w=16&q=75`,
   ).then(async (res) =>
-    Buffer.from(await res.arrayBuffer()).toString('base64')
+    Buffer.from(await res.arrayBuffer()).toString("base64"),
   );
 
   const blurSvg = `
@@ -23,8 +22,8 @@ export async function dynamicBlurDataUrl(url) {
   `;
 
   const toBase64 = (str) =>
-    typeof window === 'undefined'
-      ? Buffer.from(str).toString('base64')
+    typeof window === "undefined"
+      ? Buffer.from(str).toString("base64")
       : window.btoa(str);
 
   return `data:image/svg+xml;base64,${toBase64(blurSvg)}`;

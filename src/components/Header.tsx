@@ -7,12 +7,10 @@ export default function Header() {
   return (
     <div>
       <Line />
-      <div className="flex flex-col justify-between mb-6 md:flex-row md:items-start">
+      <div className="mb-6 flex flex-col justify-between md:flex-row md:items-start">
         <Logo />
         <MainNavigation />
       </div>
     </div>
   );
 }
-
-
