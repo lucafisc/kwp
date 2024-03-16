@@ -36,17 +36,17 @@ export default function FilmTeaser({ slug, filmtitle, year, still }: Props) {
             <h2 className={`z-10 text-2xl font-light  text-white`}>{year}</h2>
           </div>
         )}
-        {still && (
-          <CldImage
-            deliveryType="fetch"
-            alt={still.altText}
-            src={still.guid}
-            width={parentDimensions.width}
-            height={parentDimensions.height}
-            crop="fill"
-            gravity="auto"
-            className="transition-all duration-300 ease-out group-hover:scale-110 group-hover:brightness-50 group-focus:scale-110 group-focus:brightness-50"
-          />
+          {still && parentDimensions.width != 0 && (
+            <CldImage
+              deliveryType="fetch"
+              alt={still.altText}
+              src={still.guid}
+              width={parentDimensions.width}
+              height={parentDimensions.height}
+              crop="fill"
+              gravity="auto"
+              className="transition-all duration-300 ease-out group-hover:scale-110 group-hover:brightness-50 group-focus:scale-110 group-focus:brightness-50"
+            />
         )}
       </div>
     </Link>
