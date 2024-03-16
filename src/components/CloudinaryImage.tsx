@@ -18,7 +18,7 @@ export default function CloudinaryImage({ image }: Props) {
         alt={image.altText}
         height={parentDimensions.height}
         width={parentDimensions.width}
-        className="h-full w-full object-cover rounded-3xl shadow-lg"
+        className="h-full w-full rounded-3xl object-cover shadow-lg"
         deliveryType="fetch"
         crop="fill"
         gravity="auto"

@@ -8,7 +8,12 @@ export default function layout({ children }: Props) {
   return (
     <>
       {children}
-      <Link href="/films" className="py-4 hover:font-bold active:font-bold active:text-accent text-center">← Back to all films</Link>
+      <Link
+        href="/films"
+        className="py-4 text-center hover:font-bold active:font-bold active:text-accent"
+      >
+        ← Back to all films
+      </Link>
     </>
   );
 }

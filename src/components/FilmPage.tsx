@@ -30,7 +30,7 @@ export default function FilmPage({ film }: Props) {
 
   return (
     <>
-      <div id="parent-container" className="mb-8 max-w-screen-lg mx-auto ">
+      <div id="parent-container" className="mx-auto mb-8 max-w-screen-lg ">
         {film.still && (
           <CldImage
             deliveryType="fetch"

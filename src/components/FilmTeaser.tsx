@@ -20,11 +20,13 @@ export default function FilmTeaser({ slug, filmtitle, year, still }: Props) {
       onMouseLeave={() => setShowTitle(false)}
       onFocus={() => setShowTitle(true)}
       onBlur={() => setShowTitle(false)}
+      onTouchStart={() => setShowTitle(true)}
+      onTouchEnd={() => setShowTitle(false)}
       className="group"
     >
       <div
         id="parent-container"
-        className="max-w-screen-lg relative mx-auto my-6 flex h-48 w-full cursor-pointer items-center justify-start overflow-hidden rounded-3xl bg-primary bg-opacity-50 transition-all duration-300 ease-in-out hover:shadow-2xl lg:h-72"
+        className="relative mx-auto my-6 flex h-48 w-full max-w-screen-lg cursor-pointer items-center justify-start overflow-hidden rounded-3xl bg-primary bg-opacity-50 transition-all duration-300 ease-in-out hover:shadow-2xl lg:h-72"
       >
         {showTitle && (
           <div className="absolute flex flex-col p-4">
@@ -36,17 +38,17 @@ export default function FilmTeaser({ slug, filmtitle, year, still }: Props) {
             <h2 className={`z-10 text-2xl font-light  text-white`}>{year}</h2>
           </div>
         )}
-          {still && parentDimensions.width != 0 && (
-            <CldImage
-              deliveryType="fetch"
-              alt={still.altText}
-              src={still.guid}
-              width={parentDimensions.width}
-              height={parentDimensions.height}
-              crop="fill"
-              gravity="auto"
-              className="transition-all duration-300 ease-out group-hover:scale-110 group-hover:brightness-50 group-focus:scale-110 group-focus:brightness-50"
-            />
+        {still && parentDimensions.width != 0 && (
+          <CldImage
+            deliveryType="fetch"
+            alt={still.altText}
+            src={still.guid}
+            width={parentDimensions.width}
+            height={parentDimensions.height}
+            crop="fill"
+            gravity="auto"
+            className="transition-all duration-300 ease-out group-hover:scale-110 group-hover:brightness-50 group-focus:scale-110 group-focus:brightness-50"
+          />
         )}
       </div>
     </Link>
