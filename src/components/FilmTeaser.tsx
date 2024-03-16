@@ -15,7 +15,7 @@ export default function FilmTeaser({ slug, filmtitle, year, still }: Props) {
 
   return (
     <Link
-      href={`/filmblog/${slug}`}
+      href={`/films/${slug}`}
       onMouseEnter={() => setShowTitle(true)}
       onMouseLeave={() => setShowTitle(false)}
       onFocus={() => setShowTitle(true)}

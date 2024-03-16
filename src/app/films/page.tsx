@@ -1,9 +1,8 @@
-import React from "react";
 import request from "graphql-request";
-import type { FilmType } from "@/types/FilmTypes";
-import { FilmSchema } from "@/types/FilmTypes";
 import type { Metadata } from "next";
-import FilmAccordion from "@/components/FilmAccordion";
+import type { FilmTeaserType } from "@/types/FilmTypes";
+import { FilmTeaserSchema } from "@/types/FilmTypes";
+import FilmTeaser from "@/components/FilmTeaser";
 
 export const metadata: Metadata = {
   title: "Films",
@@ -11,76 +10,56 @@ export const metadata: Metadata = {
 };
 
 const WP_GRAPHQL_BASE = process.env.WP_GRAPHQL_BASE!;
-
-// Renews Cache for this route every 60 seconds
 export const revalidate = 60;
 
-export default async function Films() {
-  const films = await getFilms();
+export default async function FilmsPage() {
+  const teasers = await getTeasers();
   return (
     <main>
-      {films.map((film, index) => (
-        <FilmAccordion key={film.id} film={film} index={index} />
+      {teasers.map((teaser) => (
+        <FilmTeaser key={teaser.id} {...teaser} />
       ))}
     </main>
   );
 }
 
-async function getFilms() {
+async function getTeasers() {
   const query = `
-	{
-		films {
-			edges {
-			  node {
-				id
-				year
-				synopsis
-				festivals
-				filmtitle
-				role
-				duration
-				language
-				trailer
-				fullMovie
-				additionalInformation
-				poster {
-					guid
-					altText
-					mediaDetails {
-					  height
-					  width
-					}
-				}
-				featuredImage {
-				  node {
-					guid
-					altText
-					mediaDetails {
-					  height
-					  width
-					}
-				  }
-				}
-			  }
-			}
-		  }
-	  }
-	`;
+{
+    films {
+      edges {
+        node {
+          id
+          slug
+          filmtitle
+          year
+          still {
+            guid
+            altText
+            mediaDetails {
+              height
+              width
+            }
+          }
+        }
+      }
+    }
+  }
+`;
 
   try {
     const response = (await request(WP_GRAPHQL_BASE, query)) as {
       films: {
         edges: {
-          node: FilmType;
+          node: FilmTeaserType;
         }[];
       };
     };
-
-    const films: FilmType[] = response.films.edges.map((film) =>
-      FilmSchema.parse(film.node),
+    const teasers: FilmTeaserType[] = response.films.edges.map((filmTeaser) =>
+      FilmTeaserSchema.parse(filmTeaser.node),
     );
-    films.sort((a, b) => b.year - a.year);
-    return films;
+    teasers.sort((a, b) => b.year - a.year);
+    return teasers;
   } catch (error) {
     console.error("Error fetching films:", error);
     throw error;
