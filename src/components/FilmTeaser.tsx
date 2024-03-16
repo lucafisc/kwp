@@ -48,7 +48,7 @@ export default function FilmTeaser({ slug, filmtitle, year, still }: Props) {
             crop="fill"
             gravity="auto"
             className={`transition-all duration-300 ease-out ${
-              showTitle ? '' : 'group-hover:scale-110 group-hover:brightness-50'
+              showTitle ? 'scale-110 brightness-50' : ''
             }`}
           />
         )}
