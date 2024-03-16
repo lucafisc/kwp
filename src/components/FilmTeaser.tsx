@@ -24,7 +24,7 @@ export default function FilmTeaser({ slug, filmtitle, year, still }: Props) {
     >
       <div
         id="parent-container"
-        className="relative mx-auto my-6 flex h-48 w-full cursor-pointer items-center justify-start overflow-hidden rounded-3xl bg-primary bg-opacity-50 transition-all duration-300 ease-in-out hover:shadow-2xl lg:h-72"
+        className="max-w-screen-lg relative mx-auto my-6 flex h-48 w-full cursor-pointer items-center justify-start overflow-hidden rounded-3xl bg-primary bg-opacity-50 transition-all duration-300 ease-in-out hover:shadow-2xl lg:h-72"
       >
         {showTitle && (
           <div className="absolute flex flex-col p-4">

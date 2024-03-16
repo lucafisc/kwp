@@ -15,7 +15,7 @@ export const revalidate = 60;
 export default async function FilmsPage() {
   const teasers = await getTeasers();
   return (
-    <main>
+    <main className="">
       {teasers.map((teaser) => (
         <FilmTeaser key={teaser.id} {...teaser} />
       ))}
