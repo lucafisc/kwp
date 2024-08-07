@@ -26,7 +26,7 @@ export default async function FilmsPage() {
 async function getTeasers() {
   const query = `
 {
-    films {
+    films(first: 100) {
       edges {
         node {
           id

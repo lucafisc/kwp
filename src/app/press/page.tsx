@@ -40,7 +40,7 @@ export default async function Clippings() {
 async function getClippings() {
   const query = `
 	{
-		pressClippings {
+		pressClippings(first: 100) {
 			nodes {
 			  pressLink
 			  title
@@ -62,7 +62,6 @@ async function getClippings() {
     const clippings: ClippingType[] = response.pressClippings.nodes.map(
       (clipping) => ClippingSchema.parse(clipping),
     );
-    console.log(clippings);
     return clippings;
   } catch (error) {
     console.error("Error fetching press clippings:", error);

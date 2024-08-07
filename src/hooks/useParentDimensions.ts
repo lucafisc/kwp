@@ -28,7 +28,6 @@ export function useParentDimensions(elementId: string) {
   }, [elementId]);
 
   useEffect(() => {
-    console.log("new parentDimensions", parentDimensions);
   }, [parentDimensions]);
 
   return parentDimensions;

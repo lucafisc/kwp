@@ -59,7 +59,7 @@ export default async function About() {
 async function getProfile() {
   const query = `
     {
-        abouts {
+        abouts(first: 100) {
           nodes {
             bio
             email
