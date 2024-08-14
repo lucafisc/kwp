@@ -5,6 +5,7 @@ import type { FilmType } from "@/types/FilmTypes";
 import { FilmSchema } from "@/types/FilmTypes";
 import FilmAccordion from "@/components/FilmAccordion";
 import FilmPage from "@/components/FilmPage";
+import { Metadata } from "next";
 
 type Props = {
   params: {
@@ -19,7 +20,7 @@ export async function generateMetadata({ params: { slug } }: Props) {
   const { filmtitle, synopsis } = await getFilmData(slug);
 
   return {
-    filmtitle,
+    title: filmtitle,
     description: synopsis,
   };
 }
