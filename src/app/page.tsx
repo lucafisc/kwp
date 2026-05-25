@@ -1,9 +1,7 @@
 import request from "graphql-request";
-import { ImageSchema, ThumbnailSchema } from "@/types/ImageTypes";
-import type { ImageType, ThumbnailType } from "@/types/ImageTypes";
-import AnimatedImage from "@/components/AnimatedImage";
+import { ImageSchema } from "@/types/ImageTypes";
+import type { ImageType } from "@/types/ImageTypes";
 import CloudinaryImage from "@/components/CloudinaryImage";
-import { useParentDimensions } from "@/hooks/useParentDimensions";
 
 const WP_GRAPHQL_BASE = process.env.WP_GRAPHQL_BASE!;
 
