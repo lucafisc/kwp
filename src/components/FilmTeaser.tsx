@@ -7,8 +7,6 @@ import Link from "next/link";
 import { useParentDimensions } from "@/hooks/useParentDimensions";
 
 type Props = FilmTeaserType;
-const CLOUD_NAME = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
-
 export default function FilmTeaser({ slug, filmtitle, year, still }: Props) {
   const [showTitle, setShowTitle] = useState(false);
   const parentDimensions = useParentDimensions("parent-container");

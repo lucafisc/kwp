@@ -3,7 +3,6 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import type { FilmType } from "@/types/FilmTypes";
 import { FilmSchema } from "@/types/FilmTypes";
-import FilmAccordion from "@/components/FilmAccordion";
 import FilmPage from "@/components/FilmPage";
 import { Metadata } from "next";
 

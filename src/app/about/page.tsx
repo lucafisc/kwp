@@ -1,10 +1,6 @@
 import type { Metadata } from "next";
 import request from "graphql-request";
-import {
-  ProfileSchema,
-  ProfileType,
-  SocialMediaType,
-} from "@/types/ProfileTypes";
+import { ProfileSchema, ProfileType } from "@/types/ProfileTypes";
 import AnimatedImage from "@/components/AnimatedImage";
 import Image from "next/image";
 import { ImageType } from "@/types/ImageTypes";
@@ -20,7 +16,7 @@ const WP_GRAPHQL_BASE = process.env.WP_GRAPHQL_BASE!;
 export const revalidate = 60;
 
 export default async function About() {
-  const profile: any = await getProfile();
+  const profile: ProfileType = await getProfile();
   const image: ImageType | null = profile.featuredImage?.node ?? null;
 
   return (
