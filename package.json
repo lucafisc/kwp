@@ -10,6 +10,7 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "@tailwindcss/typography": "^0.5.19",
     "cloudinary": "^2.0.3",
     "framer-motion": "^10.18.0",
     "graphql-request": "^6.1.0",

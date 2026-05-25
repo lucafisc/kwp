@@ -41,7 +41,6 @@ async function getFilmData(slug: string) {
           year
           trailer
           synopsis
-          festivals
           role
           duration
           language

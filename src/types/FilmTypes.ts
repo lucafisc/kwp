@@ -22,8 +22,7 @@ export const FilmSchema = z.object({
   trailer: z.string().nullish(),
   fullMovie: z.string().nullish(),
   additionalInformation: z.array(z.string()),
-  festivals: z.array(z.string()),
-  featuredImage: z
+featuredImage: z
     .object({
       node: ImageSchema,
     })

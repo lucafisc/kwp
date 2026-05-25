@@ -1,8 +1,6 @@
 import { FilmType } from "@/types/FilmTypes";
-import { useState } from "react";
-import { IoPlaySharp } from "react-icons/io5";
-import ReactPlayer from "react-player";
 import MoviePlayer from "./MoviePlayer";
+import { unbounded } from "./Logo";
 
 type Props = {
   film: FilmType;
@@ -13,7 +11,7 @@ export default function FilmDescription({ film }: Props) {
     <div className="flex h-full flex-col">
       <div
         dangerouslySetInnerHTML={{ __html: film.synopsis }}
-        className="mb-6"
+        className={`prose prose-sm mb-6 max-w-none [&_li::marker]:text-inherit [&_h1]:font-[family-name:var(--font-unbounded)] [&_h2]:font-[family-name:var(--font-unbounded)] [&_h3]:font-[family-name:var(--font-unbounded)] [&_h4]:font-[family-name:var(--font-unbounded)] [&_h1]:font-bold [&_h2]:font-bold [&_h3]:font-bold [&_h4]:font-bold [&_h1]:uppercase [&_h2]:uppercase [&_h3]:uppercase [&_h4]:uppercase [&_h1]:text-primary [&_h2]:text-primary [&_h3]:text-primary [&_h4]:text-primary ${unbounded.variable}`}
       />
 
       {film.additionalInformation.map((additional, index) => (
@@ -22,10 +20,7 @@ export default function FilmDescription({ film }: Props) {
         </p>
       ))}
 
-      {film.festivals.map((festival, index) => (
-        <p key={index}>• {festival}</p>
-      ))}
-      <div className="mt-auto">
+<div className="mt-auto">
         <MoviePlayer label="trailer" movie={film.trailer} />
         <MoviePlayer label="full movie" movie={film.fullMovie} />
       </div>
