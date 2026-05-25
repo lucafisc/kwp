@@ -4,6 +4,7 @@ import { ProfileSchema, ProfileType } from "@/types/ProfileTypes";
 import AnimatedImage from "@/components/AnimatedImage";
 import Image from "next/image";
 import { ImageType } from "@/types/ImageTypes";
+import { HiEnvelope } from "react-icons/hi2";
 
 export const metadata: Metadata = {
   title: "About",
@@ -16,8 +17,8 @@ const WP_GRAPHQL_BASE = process.env.WP_GRAPHQL_BASE!;
 export const revalidate = 60;
 
 export default async function About() {
-  const profile: ProfileType = await getProfile();
-  const image: ImageType | null = profile.featuredImage?.node ?? null;
+  const profile: ProfileType | null = await getProfile();
+  const image: ImageType | null = profile?.featuredImage?.node ?? null;
 
   return (
     <main className="my-auto h-full ">
@@ -35,24 +36,24 @@ export default async function About() {
             </AnimatedImage>
           )}
         </div>
-        <div className="flex flex-col md:justify-center">
-          <div dangerouslySetInnerHTML={{ __html: profile.bio }} />
-          <br />
-          <a
-            className="cursor-pointer transition-all hover:font-bold active:text-accent"
-            href={`mailto:${profile.email}`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <p>{profile.email}</p>
-          </a>
-        </div>
+        {profile && (
+          <div className="flex flex-col md:justify-center">
+            <div dangerouslySetInnerHTML={{ __html: profile.bio }} />
+            <a
+              className="mt-4 flex items-center gap-2 transition-all hover:font-bold active:text-accent"
+              href={`mailto:${profile.email}`}
+            >
+              <HiEnvelope className="shrink-0" />
+              {profile.email}
+            </a>
+          </div>
+        )}
       </div>
     </main>
   );
 }
 
-async function getProfile() {
+async function getProfile(): Promise<ProfileType | null> {
   const query = `
     {
         abouts(first: 100) {
@@ -84,6 +85,6 @@ async function getProfile() {
     return profile;
   } catch (error) {
     console.error("Error fetching profile:", error);
-    throw error;
+    return null;
   }
 }
