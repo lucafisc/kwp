@@ -1,55 +1,36 @@
 "use client";
-import React from "react";
 import type { ClippingType } from "@/types/ClippingTypes";
-import { Noto_Serif } from "next/font/google";
-import { motion } from "framer-motion";
 import AppearingLine from "./AppearingLine";
-
-export const notoSerif = Noto_Serif({ subsets: ["latin"] });
+import { HiArrowUpRight } from "react-icons/hi2";
 
 type Props = {
   pressClipping: ClippingType;
   index: number;
 };
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: (index: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { ease: "easeOut", duration: 0.5, delay: index * 0 },
-  }),
-};
-
-export default function FilmCard({ pressClipping, index }: Props) {
+export default function ClippingCard({ pressClipping, index }: Props) {
   return (
     <>
       {index === 0 && <AppearingLine />}
-      <motion.div
-        initial="hidden"
-        animate="visible"
-        variants={cardVariants}
-        custom={index}
+      <a
+        href={pressClipping.pressLink}
+        target="_blank"
+        rel="noopener noreferrer"
       >
-        <a
-          href={pressClipping.pressLink}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <div className="group grid cursor-pointer grid-cols-10 gap-4 py-4">
-            <h1 className="col-span-2">
-              {pressClipping.pressDate.substring(0, 4)}
-            </h1>
-            <h1 className="col-span-5 transition-all group-hover:font-bold group-active:text-accent">
-              {pressClipping.title}
-            </h1>
-            <h1 className="col-span-3 hyphens-auto break-words text-right">
-              {pressClipping.pressAuthor}
-            </h1>
-          </div>
-        </a>
-      </motion.div>
-      {<AppearingLine />}
+        <div className="group grid cursor-pointer grid-cols-10 items-center gap-4 py-4 transition-all hover:bg-primary hover:bg-opacity-5 hover:pr-2">
+          <p className="col-span-2">
+            {pressClipping.pressDate.substring(0, 4)}
+          </p>
+          <p className="col-span-5 transition-all group-hover:font-bold group-active:text-accent">
+            {pressClipping.title}
+          </p>
+          <p className="col-span-3 flex items-center justify-end gap-1 hyphens-auto break-words text-right italic opacity-70">
+            {pressClipping.pressAuthor}
+            <HiArrowUpRight className="shrink-0 opacity-0 transition-all group-hover:opacity-100" />
+          </p>
+        </div>
+      </a>
+      <AppearingLine />
     </>
   );
 }

@@ -6,7 +6,7 @@ export default function AppearingLine() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.8, ease: "easeIn", delay: 0.2 }}
+      transition={{ duration: 0.3, ease: "easeIn", delay: 0 }}
     >
       <hr className="border-1 w-full border-primary"></hr>
     </motion.div>
