@@ -8,15 +8,16 @@ import FilmPage from "@/components/FilmPage";
 import { Metadata } from "next";
 
 type Props = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
 const WP_GRAPHQL_BASE = process.env.WP_GRAPHQL_BASE!;
 export const revalidate = 60;
 
-export async function generateMetadata({ params: { slug } }: Props) {
+export async function generateMetadata({ params }: Props) {
+  const { slug } = await params;
   const { filmtitle, synopsis } = await getFilmData(slug);
 
   return {
@@ -25,7 +26,8 @@ export async function generateMetadata({ params: { slug } }: Props) {
   };
 }
 
-export default async function page({ params: { slug } }: Props) {
+export default async function page({ params }: Props) {
+  const { slug } = await params;
   const film = await getFilmData(slug);
   return <FilmPage key={film.id} film={film} />;
 }
