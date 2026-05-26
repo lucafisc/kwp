@@ -27,7 +27,7 @@ export default function FilmPage({ film }: Props) {
         />
       )}
       <div className="w-full text-left md:grid md:grid-cols-2 md:gap-4">
-        <div className="text-xl">
+        <div className="text-2xl">
           <h1 className={`${unbounded.className} font-bold uppercase`}>
             {film.filmtitle}
           </h1>
