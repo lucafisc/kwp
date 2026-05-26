@@ -15,14 +15,16 @@ export default function FilmDescription({ film }: Props) {
       />
 
       {film.additionalInformation.map((additional, index) => (
-        <p key={index} className="mb-6">
-          {additional}
-        </p>
+        <div
+          key={index}
+          dangerouslySetInnerHTML={{ __html: additional }}
+          className={`prose mb-6 max-w-none [&_li::marker]:text-inherit [&_h1]:font-[family-name:var(--font-unbounded)] [&_h2]:font-[family-name:var(--font-unbounded)] [&_h3]:font-[family-name:var(--font-unbounded)] [&_h4]:font-[family-name:var(--font-unbounded)] [&_h1]:font-bold [&_h2]:font-bold [&_h3]:font-bold [&_h4]:font-bold [&_h1]:uppercase [&_h2]:uppercase [&_h3]:uppercase [&_h4]:uppercase [&_h1]:text-primary [&_h2]:text-primary [&_h3]:text-primary [&_h4]:text-primary ${unbounded.variable}`}
+        />
       ))}
 
 <div className="mt-auto">
-        <MoviePlayer label="trailer" movie={film.trailer} />
-        <MoviePlayer label="full movie" movie={film.fullMovie} />
+        <MoviePlayer label="trailer" movie={film.trailer} external={film.trailerExternal} />
+        <MoviePlayer label="full movie" movie={film.fullMovie} external={film.fullMovieExternal} />
       </div>
     </div>
   );

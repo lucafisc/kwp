@@ -39,11 +39,13 @@ async function getFilmData(slug: string) {
           id
           year
           trailer
+          trailerExternal
           synopsis
           role
           duration
           language
           fullMovie
+          fullMovieExternal
           additionalInformation
           still {
             altText
