@@ -16,6 +16,10 @@ const nextConfig = {
         protocol: "http",
         hostname: "dashboard.kathymeng.fun",
       },
+      {
+        protocol: "https",
+        hostname: "dashboard.kathymeng.fun",
+      },
     ],
   },
 };
