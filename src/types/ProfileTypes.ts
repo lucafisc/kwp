@@ -1,5 +1,4 @@
 import z from "zod";
-import { ImageSchema } from "./ImageTypes";
 
 export const SocialMediaSchema = z.object({
   node: z.object({
@@ -9,15 +8,22 @@ export const SocialMediaSchema = z.object({
   }),
 });
 
+const ProfilePictureSchema = z.object({
+  mediaItemUrl: z.string(),
+  altText: z.string(),
+  mediaDetails: z.object({
+    height: z.number(),
+    width: z.number(),
+  }),
+});
+
 export const ProfileSchema = z.object({
   bio: z.string(),
   email: z.string(),
-  featuredImage: z
-    .object({
-      node: ImageSchema,
-    })
-    .nullish(),
+  profilePicture: ProfilePictureSchema.nullish(),
 });
+
+export type ProfilePictureType = z.infer<typeof ProfilePictureSchema>;
 
 export type ProfileType = z.infer<typeof ProfileSchema>;
 export type SocialMediaType = z.infer<typeof SocialMediaSchema>;

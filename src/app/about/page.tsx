@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import request from "graphql-request";
-import { ProfileSchema, ProfileType } from "@/types/ProfileTypes";
+import { ProfileSchema, ProfileType, ProfilePictureType } from "@/types/ProfileTypes";
 import AnimatedImage from "@/components/AnimatedImage";
 import Image from "next/image";
-import { ImageType } from "@/types/ImageTypes";
 import { HiEnvelope } from "react-icons/hi2";
 
 export const metadata: Metadata = {
@@ -18,7 +17,7 @@ export const revalidate = 60;
 
 export default async function About() {
   const profile: ProfileType | null = await getProfile();
-  const image: ImageType | null = profile?.featuredImage?.node ?? null;
+  const image: ProfilePictureType | null = profile?.profilePicture ?? null;
 
   return (
     <main className="my-auto h-full ">
@@ -27,7 +26,7 @@ export default async function About() {
           {image && (
             <AnimatedImage>
               <Image
-                src={image.guid}
+                src={image.mediaItemUrl}
                 alt={image.altText}
                 height={image.mediaDetails.height}
                 width={image.mediaDetails.width}
@@ -56,18 +55,16 @@ export default async function About() {
 async function getProfile(): Promise<ProfileType | null> {
   const query = `
     {
-        abouts(first: 100) {
+        bios(first: 100) {
           nodes {
             bio
             email
-            featuredImage {
-              node {
-                guid
-                altText
-                mediaDetails {
-                  height
-                  width
-                }
+            profilePicture {
+              mediaItemUrl
+              altText
+              mediaDetails {
+                height
+                width
               }
             }
           }
@@ -77,11 +74,11 @@ async function getProfile(): Promise<ProfileType | null> {
 
   try {
     const response = (await request(WP_GRAPHQL_BASE, query)) as {
-      abouts: {
+      bios: {
         nodes: ProfileType[];
       };
     };
-    const profile: ProfileType = ProfileSchema.parse(response.abouts.nodes[0]);
+    const profile: ProfileType = ProfileSchema.parse(response.bios.nodes[0]);
     return profile;
   } catch (error) {
     console.error("Error fetching profile:", error);
