@@ -37,7 +37,7 @@ export default async function About() {
         </div>
         {profile && (
           <div className="flex flex-col md:justify-center">
-            <div dangerouslySetInnerHTML={{ __html: profile.bio }} className="prose max-w-none [&_p]:text-primary [&_li]:my-0 [&_li]:text-pretty [&_li]:text-primary [&_li::marker]:text-inherit" />
+            <div dangerouslySetInnerHTML={{ __html: profile.bio }} className="prose max-w-none [&_p]:text-primary [&_p]:leading-tight [&_li]:leading-tight [&_li]:my-0 [&_li]:text-pretty [&_li]:text-primary [&_li::marker]:text-inherit" />
             <a
               className="mt-4 flex items-center gap-2 transition-all hover:font-bold active:text-accent"
               href={`mailto:${profile.email}`}
